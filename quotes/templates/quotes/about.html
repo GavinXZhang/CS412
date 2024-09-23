@@ -1,10 +1,14 @@
 <!-- hw/templates/hw/home.html-->
-{% extends 'hw/base.html' %}
+{% extends 'quotes/base.html' %}
+{% load static %}
 {% block content %}
-        <h1>hello world</h1>
+
+        <h1>Professor Albus Percival Wufric Brian Dumbledore</h1>
+        <img src="{% static 'images/' %}{{ pic }}" alt="Random Person" style="max-width:1000px;">
+
         <p> 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error harum dolorem ipsa consequatur illum esse, itaque incidunt accusantium distinctio quod animi deleniti reprehenderit velit quam consequuntur! Est nemo assumenda iure.
-        </p>>
+            Professor Albus Percival Wulfric Brian Dumbledore, O.M. (First Class), Grand Sorc., D. Wiz., X.J. (sorc.), S. of Mag.Q.[27] (August[2] 1881[4] – 30 June 1997)[4] was an English half-blood wizard. He was the Defence Against the Dark Arts Professor, later the Transfiguration Professor, and later the Headmaster of Hogwarts School of Witchcraft and Wizardry. He also served as Supreme Mugwump of the International Confederation of Wizards (?–1995) and Chief Warlock of the Wizengamot (?–1995; 1996–1997). A Muggle-supporting wizard, though the absolute opposite in his earlier years, he was considered to have been the greatest wizard of modern times.        
+        </p>
 
 
 {% endblock %}

@@ -1,8 +1,24 @@
-<!-- hw/templates/hw/home.html-->
- {% extends 'hw/base.html' %} <!-- scriptlet tags -->
-
- {% block content %}
-        <h1>hello world</h1>
-        <hr> the page was generated at {{current_time}} 
-
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote & Image</title>
+</head>
+<body>
+    <div style="text-align:center;">
+        <!-- Static tag to refer to the image in the static folder -->
+        <img src="{% static 'images/' %}{{ picture }}" alt="Random Person" style="max-width:1000px;">
+        <h2>{{ letter1 }}</h2>
+        <p>
+                <ul> 
+                        <!-- <a href = "/hw">Home</a> -->
+                        <a href = "{% url 'about' %}">About</a>
+                        <a href = "{% url 'show_all' %}">Show All</a>
+                        
+                </ul>
+        </p>
+    </div>
+</body>
+</html>

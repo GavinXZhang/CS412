@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
+from .quotes import quotes
 import time
 import random
+import os
 # def home(request):
 
 
@@ -10,24 +12,25 @@ import random
 #     ''' 
 #     return HttpResponse(response_text)
 
+image_folder = os.path.join('static','images')
+image_filenames = os.listdir(image_folder)
 def home(request):
     '''a function to fo work on an html template'''
     #template for response
-    template_name = "hw/home.html"
+    template_name = "quotes/home.html"
 
     context= {
-        'current_time' : time.ctime(),
-        'letter1' : chr(random.randint(65,90)),
-        'letter2' : chr(random.randint(65,90)),
+        'letter1':random.choice(quotes),
+        'picture' : random.choice(image_filenames),
     }
 
 
     return render(request, template_name, context)
 
-def quotes(request):
+def quotes_page(request):
     '''a function to fo work on an html template'''
     #template for response
-    template_name = "hw/about.html"
+    template_name = "quotes/quotes_page.html"
 
     context= {
         'current_time' : time.ctime()
@@ -39,10 +42,11 @@ def quotes(request):
 def show_all(request):
     '''a function to fo work on an html template'''
     #template for response
-    template_name = "hw/about.html"
+    template_name = "quotes/show_all.html"
 
     context= {
-        'current_time' : time.ctime()
+        'q' : quotes,
+        'imag': image_filenames
     }
 
 
@@ -51,9 +55,10 @@ def show_all(request):
 def about(request):
     '''a function to fo work on an html template'''
     #template for response
-    template_name = "hw/about.html"
+    template_name = "quotes/about.html"
 
     context= {
+        'pic' : random.choice(image_filenames),
         'current_time' : time.ctime()
     }
 

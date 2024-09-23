@@ -1,0 +1,37 @@
+<!-- hw/templates/hw/home.html-->
+ {% load static %}
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>All the images and quotes</title>
+ </head>
+ <body>
+     <div style="text-align:center;">
+         <!-- Static tag to refer to the image in the static folder -->
+         {% for quote in q %}
+         <div style="border: 1px solid black; padding: 10px; margin: 10px;">
+            <h2>{{ quote }}</h2>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Loop through the list of images and display each one -->
+    <div>
+        {% for image in imag %}
+            <div style="border: 1px solid black; padding: 10px; margin: 10px;">
+                <img src="{% static 'images/' %}{{ image }}" alt="Image" style="max-width: 200px;">
+            </div>
+        {% endfor %}
+    </div>
+    <p>
+        <ul> 
+            <!-- <a href = "/hw">Home</a> -->
+            <a href = "{% url 'home' %}">Home</a>
+            <a href = "{% url 'about' %}">About</a>
+            
+        </ul>
+    </p>
+</body>
+</html>
