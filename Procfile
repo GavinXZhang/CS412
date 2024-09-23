@@ -1,2 +1,2 @@
-web: gunicorn quotes.wsgi --log-file -
+web: gunicorn cs412.wsgi --log-file -
 
