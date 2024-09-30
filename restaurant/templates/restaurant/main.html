@@ -1,0 +1,33 @@
+<!-- formdata/templates/formdata/confirmation.html-->
+
+
+{% extends 'restaurant/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <h1>Jade Garden</h1>
+    <p>
+    <a href = "{% url 'order' %}">Order</a>
+    </p>
+    <img src="{% static 'images/JadeGarden.png' %}" alt="Jade Garden">
+    <table>
+        <tr>
+            <td>
+                Location:
+            </td>
+            <td>
+                18 Tyler Street Chinatown
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hours of operation:
+            </td>
+            <td>
+                11:00am - 2:00am
+            </td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

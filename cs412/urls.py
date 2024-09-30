@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hw/', include('hw.urls')),
     path('quotes/', include('quotes.urls')),
-    path('', RedirectView.as_view(url='/quotes/'))  # Redirect root to /quotes/
+    path('formdata/', include('formdata.urls')),  # Redirect root to /quotes/
+    path('restaurant/', include('restaurant.urls'))  # Redirect root to /quotes/
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

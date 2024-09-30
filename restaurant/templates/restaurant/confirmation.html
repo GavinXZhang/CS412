@@ -1,0 +1,18 @@
+<!-- formdata/templates/formdata/confirmation.html-->
+
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<div>
+    <h1>confirmation</h1>
+    <a href = "{% url 'main' %}">Home</a>
+    <a href = "{% url 'order' %}">Order</a>
+    <p>
+        Hi, {{name}}!
+    </p>
+    <p>
+        Your order has been submitted.
+    </p>
+</div>
+
+{% endblock %}

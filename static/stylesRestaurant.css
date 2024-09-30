@@ -1,0 +1,121 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Image Styling */
+img {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+    margin: 20px auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1em;
+    color: #555;
+}
+
+table tr:first-child td {
+    font-weight: bold;
+}
+
+/* Form Styling */
+form {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"], form input[type="email"], form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Checkbox and Radio Button Styling */
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Confirmation Page */
+.confirmation-message {
+    text-align: center;
+    font-size: 1.3em;
+    color: #555;
+    margin-top: 30px;
+}
+
+.confirmation-message p {
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table, form {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    table td {
+        font-size: 1em;
+    }
+
+    form input[type="submit"] {
+        font-size: 1.1em;
+    }
+}
