@@ -1,0 +1,26 @@
+<!-- formdata/templates/formdata/confirmation.html-->
+
+
+{% extends 'mini_fb/base.html' %}
+{% load static %}
+{% block content %}
+<!-- templates/show_all.html -->
+<h1>Showing all Profiles</h1>
+<!-- scriptlet code to display the value of the variable `articles` 
+{{ articles }}
+-->
+<div>
+    {% for a in Profile %}
+    <div>
+        <h2>{{a.FirstName}}, {{a.LastName}}</h2>
+        <h3> {{a.City}} </h3>
+        <h4> {{a.Email}} </h4>
+        <p>
+        <img src="{% static 'images/' %}{{ a.ProfileImage }}" alt="{{ a.FirstName }} {{ a.LastName }}'s Profile Image">
+        </p>
+
+    </div>
+    {% endfor %}
+<div>
+
+{% endblock %}
