@@ -9,7 +9,9 @@
 <!-- scriptlet code to display the value of the variable `articles` 
 {{ articles }}
 -->
+
 <div>
+
     {% for a in Profile %}
     <div>
         <h2>{{a.FirstName}}, {{a.LastName}}</h2>
@@ -19,6 +21,14 @@
         <img src="{% static 'images/' %}{{ a.ProfileImage }}" alt="{{ a.FirstName }} {{ a.LastName }}'s Profile Image">
         </p>
 
+    </div>
+    
+    <div> 
+        <h4>Comments:</h4>
+        {% for c in a.get_message %}
+            <p>{{c.Message}}</p>
+            <p>{{c.TimeStamp}}</p>
+        {% endfor %}
     </div>
     {% endfor %}
 <div>
