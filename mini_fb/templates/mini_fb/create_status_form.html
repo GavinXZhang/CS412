@@ -2,14 +2,20 @@
 
 {% block content %}
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Create a New Profile</h2>
+        <h2 class="text-center mb-4">Create a New Status Message</h2>
 
-        <form method="POST" class="needs-validation" novalidate>
+        <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
             {% csrf_token %}
 
             <!-- Render the form fields with better layout -->
             <div class="form-row">
                 {{ form.as_p }}  <!-- Automatically renders fields with labels and inputs -->
+            </div>
+
+            <!-- File input field for images -->
+            <div class="form-row">
+                <label for="files">Upload Images:</label>
+                <input type="file" name="files" multiple />
             </div>
 
             <!-- Submit button with proper styling -->

@@ -1,0 +1,27 @@
+<!-- formdata/templates/formdata/confirmation.html-->
+
+
+{% extends 'mini_fb/base.html' %}
+{% load static %}
+{% block content %}
+<h2>News Feed for {{ profile.FirstName }} {{ profile.LastName }}</h2>
+
+<ul>
+    {% for message in news_feed %}
+        <li>
+            <div>
+                <img src="{% static 'images/' %}{{ message.Profile.ProfileImage }}" alt="{{ a.FirstName }} {{ a.LastName }}'s Profile Image">
+
+                <strong>{{ message.Profile.FirstName }} {{ message.Profile.LastName }}</strong>
+            </div>
+            <p>{{ message.Message }}</p>
+            <small>{{ message.TimeStamp }}</small>
+        </li>
+    {% empty %}
+        <li>No status messages available in your news feed.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'profile_detail' profile.pk %}" class="btn btn-secondary">Back to Profile</a>
+
+{% endblock %}

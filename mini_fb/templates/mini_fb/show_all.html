@@ -14,8 +14,8 @@
 
     {% for a in Profile %}
     <div>
-        <h2>{{a.FirstName}}, {{a.LastName}}</h2>
-        <h3> {{a.City}} </h3>
+        <h2><a href="{% url 'profile_detail' a.pk %}">{{ a.FirstName }} {{ a.LastName }}</a></h2>
+        <h3>{{ a.City }}</h3>
         <h4> {{a.Email}} </h4>
         <p>
         <img src="{% static 'images/' %}{{ a.ProfileImage }}" alt="{{ a.FirstName }} {{ a.LastName }}'s Profile Image">
@@ -23,13 +23,7 @@
 
     </div>
     
-    <div> 
-        <h4>Comments:</h4>
-        {% for c in a.get_message %}
-            <p>{{c.Message}}</p>
-            <p>{{c.TimeStamp}}</p>
-        {% endfor %}
-    </div>
+
     {% endfor %}
 <div>
 

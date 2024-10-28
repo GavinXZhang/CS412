@@ -9,4 +9,4 @@ class CreateProfileForm(forms.ModelForm):
 class CreateStatusMessageForm(forms.ModelForm):
     class Meta:
         model = StatusMessage
-        fields = ['Message']
+        fields = ['Message', 'Profile']
