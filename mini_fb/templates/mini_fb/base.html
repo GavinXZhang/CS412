@@ -8,15 +8,28 @@
     </head>
     <nav>
         <ul> 
-            <h3><a href="{% url 'create_profile'%}">Create a Profile</a></h3>
-            <h3><a href="{% url 'show_all'%}">Show_all</a></h3>
+            <li><a href="{% url 'show_all' %}">Show All</a></li>
+            {% if request.user.is_authenticated %}
+            <h3>Logged in User: {{request.user}}</h3>
+            {% else %}
+            <h3>Not Logged In.</h3>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'create_profile'%}">Create a Profile</a></li>
+            <form method="POST" action = "{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>            
+            {% else %}
+            <h3><a href="{% url 'login'%}">Log in</a></h3>
+            {% endif %}
             <!-- <a href = "/hw">Home</a> -->
 
             
         </ul>
     </nav>
     <body>
-
+    
     {% block content %}
     {% endblock %}
 

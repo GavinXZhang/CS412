@@ -1,0 +1,14 @@
+<!-- formdata/templates/formdata/confirmation.html-->
+
+
+{% extends 'mini_fb/base.html' %}
+{% block content %}
+<!-- templates/show_all.html -->
+<h1>You have successfully LoggedOut.</h1>
+<h2>Would you like to Login again?</h2>
+<!-- scriptlet code to display the value of the variable `articles` 
+{{ articles }}
+-->
+<a href ="{% url 'login' %}" class="button">Log in Again</a>
+
+{% endblock %}

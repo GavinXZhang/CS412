@@ -3,7 +3,7 @@
 from typing import Any
 from django.shortcuts import render
 from django.urls import reverse ## NEW
-
+from django.contrib.auth.mixins import LoginRequiredMixin 
 from . models import * 
 from . forms import * ## NEW
 from django.views.generic import ListView, DetailView, CreateView ## NEW
@@ -92,8 +92,17 @@ class CreateCommentView(CreateView):
         context['article'] = article
 
         return context
-class CreateArticleView(CreateView):
+class CreateArticleView(LoginRequiredMixin, CreateView):
     '''View to create a new article instance'''
     form_class = CreateArticleForm
     template_name = 'blog/create_article_form.html'
-    
+    def get_login_url(self) -> str:
+        return reverse('show_all')
+    def form_valid(self, form):
+        print(f'CreateArticleView: form.cleaned_data={form.cleaned_data}')
+        # find the logged in user
+        user = self.request.user
+        print(f"CreateArticleView user={user} article.user={user}")
+        # attach user to form instance (Article object):
+        form.instance.user = user
+        return super().form_valid(form)
