@@ -1,0 +1,99 @@
+/* Basic body styling */
+body {
+    background-color: lightgrey;
+    font-family: Verdana, sans-serif;
+    color: rgb(40, 40, 138);
+}
+
+/* Text styling for general elements */
+h1, h2, h3, footer, header, p {
+    font-family: verdana;
+    color: rgb(40, 40, 138);
+}
+
+/* Container styling */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white; /* Background for the container */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Drop shadow */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Table styling */
+table {
+    width: 100%; /* Ensures the table fills the container */
+    border-collapse: collapse;
+}
+
+/* Table header (th) styling */
+th {
+    background-color: #7599d2; /* Header background color */
+    color: white; /* Header text color */
+    padding: 10px;
+    font-weight: bold;
+    text-align: left; /* Align text to the left */
+}
+
+/* Table cell (td) styling */
+td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border for cell separation */
+    color: rgb(40, 40, 138);
+    font-family: verdana;
+    text-align: left; /* Align text in cells */
+}
+
+/* Navbar styling */
+nav ul {
+    text-align: center;
+    padding: 0;
+}
+
+nav ul a, .container {
+    font-family: verdana;
+    color: rgb(40, 40, 138);
+    width: auto;
+    padding: 10px;
+    list-style-type: none;
+    text-decoration: none;
+    display: inline-block;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* Header title styling */
+.header-title {
+    text-align: center;
+    color: #7599d2;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Button styling in h4 */
+h4 a {
+    font-family: verdana;
+    display: inline-block;
+    color: rgb(40, 40, 138);
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #ccd0d6;
+    margin: 10px;
+}
+
+/* Additional form and image styling */
+.form-picture {
+    margin: 5px 0;
+}
+
+/* Center align form-table */
+.form-table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}

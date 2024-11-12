@@ -1,0 +1,118 @@
+<h3>Filter Voter Results</h3>
+<form action="{% url 'results_list' %}" method="GET">
+    <table>
+        <!-- Party Affiliation Dropdown -->
+        <tr>
+            <th>Party Affiliation:</th>
+            <td>
+                <select name="affiliation">
+                    <option value="">-- Select Party --</option>
+                    <option value="D">Democratic</option>
+                    <option value="R">Republican</option>
+                    <option value="I">Independent</option>
+                    <option value="L">Libertarian</option>
+                    <option value="G">Green</option>
+                    <option value="U">Unknown</option>
+                    <option value="J">Justice Party</option>
+                    <option value="A">Affiliated</option>
+                    <option value="CC">Custom Coalition</option>
+                    <option value="X">Exclusive</option>
+                    <option value="Q">Qualified</option>
+                    <option value="S">Socialist</option>
+                    <option value="FF">Federalist Front</option>
+                    <option value="HH">Harmony Party</option>
+                    <option value="T">Traditionalist</option>
+                    <option value="AA">Alliance Association</option>
+                    <option value="GG">Global Greens</option>
+                    <option value="Z">Zenith</option>
+                    <option value="O">Others</option>
+                    <option value="P">Progressive</option>
+                    <option value="E">Environmentalists</option>
+                    <option value="V">Vision Party</option>
+                    <option value="H">Humanitarian</option>
+                    <option value="Y">Youth Alliance</option>
+                    <option value="W">Workers Party</option>
+                    <option value="EE">Equality Party</option>
+                    <option value="K">Knowledge Party</option>
+                    <option value="C">Conservative</option>
+                    <option value="M">Moderate</option>
+                    <option value="F">Freedom Party</option>
+                    <option value="BP">Blue Party</option>
+                    <option value="RP">Red Party</option>
+                    <option value="CP">Centrist Party</option>
+                    <option value="UP">Unity Party</option>
+                    <option value="AP">Alliance for Progress</option>
+                    <option value="DP">Development Party</option>
+                    <option value="EP">Equality Progressives</option>
+                    <option value="NP">National Party</option>
+                    <option value="LP">Labor Party</option>
+                    <option value="TP">Traditionalist Progressives</option>
+                    <option value="HP">Heritage Party</option>
+                    <option value="FP">Future Party</option>
+                    <option value="PP">Peoples Party</option>
+                    <option value="SP">Social Progressives</option>
+                    <option value="EP">Environmentalist Party</option>
+                </select>
+            </td>
+
+        </tr>
+        
+        <!-- Minimum Date of Birth Dropdown -->
+        <tr>
+            <th>Minimum Date of Birth:</th>
+            <td>
+                <select name="min_dob">
+                    <option value="">-- Select Year --</option>
+                    {% for year in year_range %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+        <!-- Maximum Date of Birth Dropdown -->
+        <tr>
+            <th>Maximum Date of Birth:</th>
+            <td>
+                <select name="max_dob">
+                    <option value="">-- Select Year --</option>
+                    {% for year in year_range %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+        <!-- Voter Score Dropdown -->
+        <tr>
+            <th>Voter Score:</th>
+            <td>
+                <select name="voter_score">
+                    <option value="">-- Select Score --</option>
+                    {% for score in score_range %}
+                    <option value="{{ score }}">{{ score }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        
+        <!-- Election Participation Checkboxes -->
+        <tr>
+            <th>Voted in Specific Elections:</th>
+            <td>
+                <input type="checkbox" name="v20state" value="true"> 2020 State Election<br>
+                <input type="checkbox" name="v21town" value="true"> 2021 Town Election<br>
+                <input type="checkbox" name="v21primary" value="true"> 2021 Primary Election<br>
+                <input type="checkbox" name="v22general" value="true"> 2022 General Election<br>
+                <input type="checkbox" name="v23town" value="true"> 2023 Town Election
+            </td>
+        </tr>
+
+        <!-- Submit Button -->
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Filter Results">
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,22 @@
+<!-- hw/templates/hw/home.html-->
+ <!-- base case page which all pages will inherentr-->
+  {% load static %}
+<html>
+    <head>
+        <title>Voter_analytics</title>
+        <link rel="stylesheet" href="{% static 'styles-3.css' %}">
+
+        <!-- <link rel="stylesheet" href="{% static 'styles02.css' %}"> -->
+    </head>
+
+    <body>
+    <ul>
+        <li><a href = "{% url 'graphs' %}"> Graphs</li>
+        <li><a href ="{% url 'home' %}"> Home</a></li>
+    </ul>
+    {% block content %}
+    {% endblock %}
+
+    </body>
+
+</html>

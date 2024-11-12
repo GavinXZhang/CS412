@@ -1,0 +1,75 @@
+{% extends 'voter_analytics/base.html' %}
+<h1>Showing all Results</h1>
+
+{% block content %}
+<div class="row">
+    {% include "voter_analytics/search.html" %}    
+</div>
+<div class= "container">
+    <div class = "row">
+        <table>
+            <tr>
+                <th>View Details</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Street Number</th>
+                <th>Street Name</th>
+                <th>Apartment Number</th>
+                <th>Zip Code</th>
+                <th>Date Of Birth</th>
+                <th>Date of Registration</th>
+                <th>Precinct Number</th>
+                <!-- <th>v20state</th>
+                <th>v21town</th>
+                <th>v21primary</th>
+                <th>v22general</th>
+                <th>v23town</th> -->
+                <th>Voter_score</th>
+            </tr>
+            {% for r in results %}
+            <tr>
+                <td><a href="{% url 'result' r.pk %}">View Details</a></td>
+                <td>{{r.last_name}}</td>
+                <td>{{r.first_name}}</td>
+                <td>{{r.SNumber}}</td>
+                <td>{{r.SName}}</td>
+                <td>{{r.ApartN}}</td>
+                <td>{{r.ResZip}}</td>
+                <td>{{r.DOB}}</td>
+                <td>{{r.DOR}}</td>
+                <td>{{r.PNumber}}</td>
+                <!-- <td>{{r.v20state}}</td>
+                <td>{{r.v21town}}</td>
+                <td>{{r.v21primary}}</td>
+                <td>{{r.v22general}}</td>
+                <td>{{r.v23town}}</td> -->
+                <td>{{r.VoterS}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="row">
+        {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li>
+                    <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+             
+                </li>
+            {% endif %}
+                <li class="">
+                    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                </li>
+            {% if page_obj.has_next %}
+                <li>
+                    <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+                </li>
+            {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+</div> 
+</div>
+{% endblock %}

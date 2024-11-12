@@ -1,0 +1,52 @@
+{% extends 'voter_analytics/base.html' %}
+{% block content %}
+
+<div class= "container">
+    <div class = "row">
+        <table>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Street Number</th>
+                <th>Street Name</th>
+                <th>Apartment Number</th>
+                <th>Zip Code</th>
+                <th>Date Of Birth</th>
+                <th>Date of Registration</th>
+                <th>Precinct Number</th>
+                <th>v20state</th>
+                <th>v21town</th>
+                <th>v21primary</th>
+                <th>v22general</th>
+                <th>v23town</th>
+                <th>Voter_score</th>
+            </tr>
+            <tr>
+                
+                <td>{{r.last_name}}</td>
+                <td>{{r.first_name}}</td>
+                <td>{{r.SNumber}}</td>
+                <td>{{r.SName}}</td>
+                <td>{{r.ApartN}}</td>
+                <td>{{r.ResZip}}</td>
+                <td>{{r.DOB}}</td>
+                <td>{{r.DOR}}</td>
+                <td>{{r.PNumber}}</td>
+                <td>{{r.v20state}}</td>
+                <td>{{r.v21town}}</td>
+                <td>{{r.v21primary}}</td>
+                <td>{{r.v22general}}</td>
+                <td>{{r.v23town}}</td>
+                <td>{{r.VoterS}}</td>
+
+
+            </tr>
+
+        </table>
+        <p>
+            <a href="https://www.google.com/maps/search/?api=1&query={{ r.SNumber }}+{{ r.SName }},+{{ r.city }},+{{ r.ResZip }}" target="_blank">
+                View Address on Google Maps
+            </a>
+        </p>
+
+{% endblock %}

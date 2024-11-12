@@ -26,6 +26,8 @@ urlpatterns = [
     path('formdata/', include('formdata.urls')),  # Redirect root to /quotes/
     path('restaurant/', include('restaurant.urls')),  # Redirect root to /quotes/
     path('mini_fb/', include('mini_fb.urls')), #include the urls our mini_fb project urls.py file
+    path('voter_analytics/', include('voter_analytics.urls')), #include the urls our mini_fb project urls.py file
+
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,21 @@
+{% extends 'voter_analytics/base.html' %}
+{% block content %}
+
+<h1>Voter Data Visualizations</h1>
+
+<div>
+    <h2>Distribution of Voters by Year of Birth</h2>
+    <div>{{ birth_year_hist|safe }}</div>
+</div>
+
+<div>
+    <h2>Distribution of Voters by Party Affiliation</h2>
+    <div>{{ party_aff_pie|safe }}</div>
+</div>
+
+<div>
+    <h2>Voter Participation by Election</h2>
+    <div>{{ election_hist|safe }}</div>
+</div>
+
+{% endblock %}
