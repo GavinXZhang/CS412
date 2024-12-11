@@ -1,0 +1,19 @@
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}
+    Delete Event
+{% endblock %}
+
+{% block content %}
+<h2>Are you sure you want to delete "{{ object.title }}"?</h2>
+<p><strong>Start Time:</strong> {{ object.start_time }}</p>
+<p><strong>End Time:</strong> {{ object.end_time }}</p>
+<p><strong>Location:</strong> {{ object.location }}</p>
+<p><strong>Description:</strong> {{ object.description }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'event-list' %}">Cancel</a>
+</form>
+{% endblock %}

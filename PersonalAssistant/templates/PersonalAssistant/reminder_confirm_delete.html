@@ -1,0 +1,12 @@
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}Delete Reminder{% endblock %}
+
+{% block content %}
+<h2>Are you sure you want to delete "{{ object.message }}"?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'event-list' %}">Cancel</a>
+</form>
+{% endblock %}

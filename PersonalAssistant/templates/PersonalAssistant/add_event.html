@@ -1,0 +1,15 @@
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}
+    Add New Event
+{% endblock %}
+
+{% block content %}
+<h2>Add a New Event</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Event</button>
+</form>
+<a href="{% url 'event-list' %}">Back to Event List</a>
+{% endblock %}

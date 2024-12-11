@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.db.models import Q
 from django.contrib.auth.models import User
+from django.conf import settings
+
 # Create your models here.
 class Profile(models.Model):
     '''Encapsulate the idea of an Article by some author.'''
@@ -11,7 +13,7 @@ class Profile(models.Model):
     City = models.TextField(blank=False)
     Email = models.TextField(blank=False)
     ProfileImage = models.TextField(blank=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
     def get_message(self):
         message = StatusMessage.objects.filter(Profile = self).order_by('-TimeStamp')
         return message

@@ -1,0 +1,58 @@
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ request.user.username }}</h2>
+
+<h3>Upcoming Calendar Events</h3>
+<ul>
+    {% for event in events %}
+        <li>
+            <strong>{{ event.title }}</strong>: {{ event.start_time|date:"Y-m-d H:i" }}
+            <br>{{ event.description }}
+        </li>
+    {% empty %}
+        <li>No upcoming events.</li>
+    {% endfor %}
+</ul>
+
+<h3>Pending Reminders</h3>
+<ul>
+    {% for reminder in reminders %}
+        <li>
+            <strong>{{ reminder.message }}</strong>: {{ reminder.reminder_time|date:"Y-m-d H:i" }}
+        </li>
+    {% empty %}
+        <li>No pending reminders.</li>
+    {% endfor %}
+</ul>
+
+<h3>Missed Calls</h3>
+<ul>
+    {% for call in missed_calls %}
+        <li>
+            <strong>{{ call.contact_name }}</strong> at {{ call.call_time|date:"Y-m-d H:i" }}
+        </li>
+    {% empty %}
+        <li>No missed calls.</li>
+    {% endfor %}
+</ul>
+<footer></footer>
+<h3>Your Calendar</h3>
+<iframe
+    src="https://calendar.google.com/calendar/embed?src=weixuanzhang188%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"
+    style="border: 0"
+    width="800"
+    height="600"
+    frameborder="0"
+    scrolling="no">
+</iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=weixuanzhang188%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</table>
+
+
+
+{% endblock %}

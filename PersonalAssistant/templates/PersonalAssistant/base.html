@@ -1,0 +1,39 @@
+<!-- hw/templates/hw/home.html-->
+ <!-- base case page which all pages will inherentr-->
+ {% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>{% block title %}My Django App{% endblock %}</title>
+     <link rel="stylesheet" href="{% static '/styles.css' %}"> <!-- Add custom styles if needed -->
+ </head>
+ <body>
+     <header>
+         <h1>Gavin's Personal Assistant</h1>
+            {% if request.user.is_authenticated %}
+            <h3>Logged in User: {{request.user}}</h3>
+            {% else %}
+            <h3>Not Logged In.</h3>
+            {% endif %}
+         <nav>
+             <ul>
+                 <li><a href="/PersonalAssistant/">Home</a></li>
+                 <li><a href="/PersonalAssistant/event_list">Add Events</a></li>
+                 <li><a href="/admin/">Admin</a></li>
+             </ul>
+         </nav>
+     </header>
+ 
+     <main>
+         {% block content %}
+         <!-- Main content will go here -->
+         {% endblock %}
+     </main>
+ 
+     <footer>
+     </footer>
+ </body>
+ </html>
+ 

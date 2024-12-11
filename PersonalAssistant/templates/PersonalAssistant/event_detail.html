@@ -1,0 +1,14 @@
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}
+    Event Details
+{% endblock %}
+
+{% block content %}
+<h2>{{ object.title }}</h2>
+<p><strong>Description:</strong> {{ object.description }}</p>
+<p><strong>Start Time:</strong> {{ object.start_time }}</p>
+<p><strong>End Time:</strong> {{ object.end_time }}</p>
+<p><strong>Location:</strong> {{ object.location }}</p>
+<a href="{% url 'event-list' %}">Back to Event List</a>
+{% endblock %}

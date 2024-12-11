@@ -1,0 +1,16 @@
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}
+    Reminder Details
+{% endblock %}
+
+{% block content %}
+<h1>Reminder Details</h1>
+
+<p><strong>Message:</strong> {{ object.message }}</p>
+<p><strong>Reminder Time:</strong> {{ object.reminder_time }}</p>
+<p><strong>Status:</strong> {{ object.get_status_display }}</p>
+<p><strong>Associated Event:</strong> {{ object.calendar_event }}</p>
+
+<a href="{% url 'event-list' %}">Back to Events</a>
+{% endblock %}

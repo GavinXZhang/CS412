@@ -1,0 +1,50 @@
+
+{% extends "PersonalAssistant/base.html" %}
+
+{% block title %}
+    Add Events
+{% endblock %}
+
+{% block content %}
+<h1>Add Events</h1>
+<a href="{% url 'add-event' %}" class="btn btn-primary">Add Event</a>
+<a href="{% url 'reminder-create' %}" class="btn btn-secondary">Add Reminder</a>
+<a href="{% url 'calllog-create' %}" class="btn btn-secondary">Add Call Log</a>
+<h2>Calendar Events</h2>
+<ul>
+    {% for event in events %}
+        <li>
+            <strong>{{ event.title }}</strong>: {{ event.start_time|date:"Y-m-d H:i" }}
+            <br>{{ event.description }}
+            <br>
+            <a href="{% url 'event-detail' event.pk %}">View Details</a> |
+            <a href="{% url 'event-delete' event.pk %}" style="color: red;">Delete</a>
+        </li>
+    {% empty %}
+        <li>No events found.</li>
+    {% endfor %}
+</ul>
+<h2>Reminders</h2>
+<ul>
+    {% for reminder in reminders %}
+    <li>
+        <strong>{{ reminder.message }}</strong>: {{ reminder.reminder_time|date:"Y-m-d H:i" }}
+        <a href="{% url 'reminder-detail' reminder.pk %}">View Details</a> | 
+        <a href="{% url 'reminder-delete' reminder.pk %}" style="color: red;">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Call Logs</h2>
+<ul>
+    {% for call in call_logs %}
+    <li>
+        <strong>{{ call.contact_name }}</strong>: {{ call.call_time|date:"Y-m-d H:i" }}
+        <br>
+        {{ call.phone_number }}
+        <a href="{% url 'calllog-delete' call.pk %}" style="color: red;">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
